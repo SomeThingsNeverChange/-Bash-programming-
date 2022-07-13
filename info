@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "----System----"
+echo "OS Distribution:" $WSL_DISTRO_NAME $BASH_VERSION
