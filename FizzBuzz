@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "Enter some digit: "
+read var
+for (( i = 1; i <= $var; i++)); do #stay true while i < or = $var
+        if [[ $(( $i % 2 )) -eq 0 ]] ; then #checking parity
+                continue
+        elif [ $(( $i % 3 )) -eq 0 ] && [ $(( $i % 5 )) -eq 0 ] ; then #print "Fizz" if i divisible 3 and divisible 5
+                echo "FizzBuzz"
+                continue
+        elif [[ $(( $i % 3 )) -eq 0 ]] ; then #print "Fizz" if i divisible 3
+                echo "Fizz"
+                continue
+        elif [[ $(( $i % 5 )) -eq 0 ]] ; then #print "Buzz" if i divisible 5
+                echo "Buzz"
+                continue
+        else
+                echo $i
+        fi
+done
