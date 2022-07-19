@@ -1,0 +1,30 @@
+  GNU nano 4.8                              combat.sh                                        #!/bin/bash
+creeps=('skeleton' 'zombie' 'slug')
+hp=('90' '120' '100')
+mnstr=$(($RANDOM%3))
+php=100
+mhp=${hp[mnstr]}
+i=1
+echo "---Your enemy "${creeps[$mnstr]}"!---"
+while [[ php -gt 0 ]] && [[ mhp -gt 0 ]]; do
+        echo "| Round "$((i++))" |"$'\n'
+        echo "You have: "$php"hp"
+        echo "Enemy have: "$mhp"hp"$'\n'
+        phit=$(($RANDOM%100))
+        mhit=$(($RANDOM%100))
+        pdmg=$(($RANDOM%15+10))
+        mdmg=$(($RANDOM%20+15))
+        if (( $phit >= 30 )); then
+                echo "You hit enemy on a "$pdmg
+                mhp=$(( $mhp - $pdmg ))
+        else
+                echo "You missed!"
+        fi
+        if (( $mhit >= 40 )); then
+                echo "Enemy hit you on a "$mdmg
+                php=$(( $php - $mdmg ))
+        else
+                echo "Enemy missed!"
+        fi
+        read -p "Press Enter to hit"
+done
