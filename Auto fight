@@ -1,4 +1,4 @@
-  GNU nano 4.8                              combat.sh                                        #!/bin/bash
+#!/bin/bash
 creeps=('skeleton' 'zombie' 'slug')
 hp=('90' '120' '100')
 mnstr=$(($RANDOM%3))
